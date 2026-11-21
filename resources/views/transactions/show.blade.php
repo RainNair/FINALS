@@ -1,0 +1,4 @@
+@extends('layouts.app')
+@section('content')
+<div class="panel"><div class="toolbar"><h1>Reservation {{ $transaction->transaction_number }}</h1><a class="button" href="{{ route('transactions.edit', $transaction) }}">Edit reservation</a></div><p><strong>Guest:</strong> {{ $transaction->customer_name }}</p><p><strong>Email:</strong> {{ $transaction->customer_email }}</p><p><strong>Guests:</strong> {{ $transaction->guest_count }}</p><p><strong>Date:</strong> {{ $transaction->transaction_date->format('F j, Y') }}</p><p><strong>Time:</strong> {{ $transaction->reservation_time->format('H:i') }}</p><p><strong>Table:</strong> {{ $transaction->table_type }}</p><p><strong>Estimated bill / deposit:</strong> {{ number_format((float) $transaction->amount, 2) }}</p><p><strong>Status:</strong> <span class="badge">{{ ucfirst($transaction->status) }}</span></p><p><strong>Notes:</strong><br>{{ $transaction->notes ?: 'No notes provided.' }}</p></div>
+@endsection
