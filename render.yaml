@@ -3,7 +3,7 @@ services:
     name: savoria-restaurant
     runtime: docker
     plan: free
-    healthCheckPath: /login
+    healthCheckPath: /up
     envVars:
       - key: APP_ENV
         value: production

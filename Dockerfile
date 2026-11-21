@@ -14,4 +14,6 @@ RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoload
 
 EXPOSE 10000
 
-CMD sh -c "php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=\${PORT:-10000}"
+RUN chmod +x /var/www/start-render.sh
+
+CMD ["sh", "/var/www/start-render.sh"]
